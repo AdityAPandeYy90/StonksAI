@@ -56,7 +56,17 @@ from backend import scraper
 # Load environment variables
 load_dotenv()
 
+from fastapi import FastAPI, Query, Header, HTTPException, File, UploadFile, Form, Request
+
 app = FastAPI(title="Indian Stock Fundamental & News Analyzer")
+
+@app.get("/api/debug-headers")
+def debug_headers(request: Request):
+    return {
+        "path": request.url.path,
+        "query": str(request.query_params),
+        "headers": dict(request.headers)
+    }
 
 @app.get("/")
 def read_root():
