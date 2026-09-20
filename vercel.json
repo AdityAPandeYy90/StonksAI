@@ -4,10 +4,10 @@
       "includeFiles": "style.css,app.js,index.html,frontend/**"
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index.py"
+      "src": "/api/(.*)",
+      "dest": "/api/index.py"
     }
   ]
 }
