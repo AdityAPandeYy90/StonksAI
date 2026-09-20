@@ -15,12 +15,13 @@ __pycache__/
 .vscode/
 .idea/
 
-# Output spreadsheets & cache
+outputs/
+backend/outputs/
+momentum_screener/outputs/
+*.png
 *.xlsx
 *.xls
 *.csv
-momentum_screener/outputs/
-backend/outputs/
 scratch/
 
 # OS files
