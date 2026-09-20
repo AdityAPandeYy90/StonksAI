@@ -56,17 +56,9 @@ from backend import scraper
 # Load environment variables
 load_dotenv()
 
-from fastapi import FastAPI, Query, Header, HTTPException, File, UploadFile, Form, Request
+from fastapi import FastAPI, Query, Header, HTTPException, File, UploadFile, Form
 
 app = FastAPI(title="Indian Stock Fundamental & News Analyzer")
-
-@app.get("/api/debug-headers")
-def debug_headers(request: Request):
-    return {
-        "path": request.url.path,
-        "query": str(request.query_params),
-        "headers": dict(request.headers)
-    }
 
 @app.get("/")
 def read_root():
@@ -776,32 +768,6 @@ def download_file(file: str = Query(..., description="Filename to download")):
             media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         )
     raise HTTPException(status_code=404, detail="Requested spreadsheet output was not found.")
-
-@app.get("/{full_path:path}")
-def catch_all(full_path: str):
-    clean_path = full_path.strip("/")
-    
-    if clean_path in ("app.js", "frontend/app.js", "api/app.js"):
-        p = os.path.join(BASE_DIR, "app.js")
-        if not os.path.exists(p):
-            p = os.path.join(BASE_DIR, "frontend", "app.js")
-        if os.path.exists(p):
-            return FileResponse(p, media_type="application/javascript")
-            
-    if clean_path in ("style.css", "frontend/style.css", "api/style.css"):
-        p = os.path.join(BASE_DIR, "style.css")
-        if not os.path.exists(p):
-            p = os.path.join(BASE_DIR, "frontend", "style.css")
-        if os.path.exists(p):
-            return FileResponse(p, media_type="text/css")
-            
-    # Default to serving index.html for all page views
-    p = os.path.join(BASE_DIR, "index.html")
-    if not os.path.exists(p):
-        p = os.path.join(BASE_DIR, "frontend", "index.html")
-    if os.path.exists(p):
-        return FileResponse(p, media_type="text/html")
-    return {"message": "StonksAI API is running"}
 
 # Mount frontend files at the root if directory exists locally (on Vercel, static assets are served directly via Edge CDN)
 if not IS_VERCEL:
