@@ -1,0 +1,6 @@
+{
+  "min_eps_growth_qoq": 0.0,
+  "min_sales_growth_qoq": 0.0,
+  "min_npm_percent": 8.0,
+  "allow_missing_yoy_for_ipos": true
+}

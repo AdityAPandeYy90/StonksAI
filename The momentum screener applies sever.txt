@@ -1,0 +1,47 @@
+The momentum screener applies several filters sequentially to filter the universe down to the strongest stocks. The exact filters and their configurations (defined in 
+settings.yaml
+ and applied in 
+filters.py
+) are as follows:
+
+1. Price Filter
+Requirement: Stock price must be greater than or equal to a minimum threshold.
+Filter Rule: Close >= min_price
+Default Value: 100.0 INR (keeps stocks priced at or above Rs. 100)
+2. Liquidity Filter
+Requirement: 50-day average daily dollar volume must meet a minimum liquidity threshold.
+Filter Rule: Avg_Dollar_Volume_Cr >= min_dollar_volume_cr
+Default Value: 75.0 Crores (average daily trading volume value of at least Rs. 75,000,000)
+3. Volatility Filter
+Requirement: Average True Range (ATR) as a percentage of the stock price must meet a minimum volatility threshold.
+Filter Rule: ATR_pct >= min_atr_percent
+Default Value: 2.5% (filters out low-volatility / slow-moving stocks)
+4. Trend (Uptrend) Filters
+Requirement: The stock's price must be in a strong uptrend, trading at least 1% above its key moving averages.
+Filter Rules:
+Close > EMA21 * 1.01 (price is > 1% above the 21-day Exponential Moving Average)
+Close > SMA50 * 1.01 (price is > 1% above the 50-day Simple Moving Average)
+Close > SMA200 * 1.01 (price is > 1% above the 200-day Simple Moving Average)
+5. Watchlist Slicing & Selection Filter
+After the filtering steps in 
+filters.py
+, the remaining universe is ranked (using 
+rank_universe_momentum
+) and sliced into watchlists in 
+export.py
+:
+
+Top Percentage Filter: Keeps only the top 7% of the remaining stocks (default configured as top_percent: 7).
+Slices Generated:
+Combined Momentum: Top 7% sorted by Momentum_Score (weighted average of 1M, 3M, and 6M percentile ranks: 25% 1M, 35% 3M, 40% 6M).
+1M Momentum: Top 7% sorted by Rank1M (1-month return percentile rank).
+3M Momentum: Top 7% sorted by Rank3M (3-month return percentile rank).
+6M Momentum: Top 7% sorted by Rank6M (6-month return percentile rank).
+Intersection: A highly selective list containing only stocks that appear in the top 7% of all three lists (1M, 3M, and 6M) concurrently.
+12:37 AM
+
+
+
+
+
+

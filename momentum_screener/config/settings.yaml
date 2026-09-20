@@ -1,0 +1,106 @@
+# Indian Momentum Screener Configurations
+
+# Paths (relative to momentum_screener folder)
+data_dir: "data"
+output_dir: "outputs"
+log_dir: "logs"
+
+# Universe Configuration
+# Official NSE Equity List URL
+universe_url: "https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv"
+
+# Screener Parameters
+top_percent: 7          # Keep the top 7% strongest stocks in each screen
+min_price: 100.0        # Minimum stock price in INR
+min_atr_percent: 2.5    # Minimum ATR(21) as a percentage of price
+min_dollar_volume_cr: 75.0 # 50-day average daily dollar volume in Crores (1 Crore = 10,000,000 INR)
+
+# Multi-Level Screener Parameters
+min_scan_score: 2       # Keep stocks that match at least 2 EasyScans (Level 2 filter)
+auto_filter_top_sectors: false # Keep all Score >= 2 stocks and generate Sector summary for manual review
+top_sectors_count: 3    # Used if auto_filter_top_sectors is set to true
+
+# Momentum Ranking Weights
+ranking_weights:
+  weight_1m: 0.25
+  weight_3m: 0.35
+  weight_6m: 0.40
+
+# Technical Indicators Settings
+history_days: 400       # Number of trading days of historical data to download
+parallel_downloads: 15  # Number of parallel download threads for yfinance
+
+# 8 TC2000 EasyScans (Option B Liquidity Thresholds)
+scans:
+  recent_ipos:
+    min_price: 100.0        # mapped from > 5 USD to standard Rs. 100
+    min_volume: 30000       # 30,000 shares
+    min_dollar_volume_cr: 0.15 # Rs. 15 Lakhs
+    max_history_bars: 250   # to identify recent IPOs
+    min_history_bars: 5     # Price History > 5
+  biggest_1m_gainers:
+    min_price: 50.0         # mapped from > 1 USD to Rs. 50
+    min_volume: 40000       # 40,000 shares
+    min_dollar_volume_cr: 1.0 # Rs. 1 Crore
+    min_adr20: 2.4          # ADR% 20 Days > 2.4%
+    min_rank_1m: 97.04      # Rank between 97.04 and Max
+    min_trend_intensity: 90.0 # Trend Intensity > 90
+  biggest_1y_losers:
+    min_5d_dollar_volume_cr: 0.20 # Rs. 20 Lakhs 5-day avg
+    max_rank_1y: 3.45       # Rank between Min and 3.45
+  five_day_gainers:
+    min_price: 20.0         # mapped from > 0.5 USD to Rs. 20
+    min_volume: 200000      # 200,000 shares
+    min_dollar_volume_cr: 1.0 # Rs. 1 Crore
+    min_adr20: 3.0          # ADR% > 3% (we use ADR20)
+    min_5d_return: 20.0     # 5-day return > 20%
+  adr_scan:
+    min_price: 50.0         # mapped from > 1 USD to Rs. 50
+    min_volume: 40000       # 40,000 shares
+    min_dollar_volume_cr: 0.40 # Rs. 40 Lakhs
+    min_adr20: 2.2          # ADR% 20 Days > 2.2%
+    universe: "nifty_500"   # Maps ADR to Nifty 500 equivalent
+  high_trend_intensity:
+    min_trend_intensity: 108.0 # Trend Intensity > 108
+    min_volume: 40000       # 40,000 shares
+    min_adr20: 2.4          # ADR% 20 Days > 2.4%
+    min_dollar_volume_cr: 1.0 # Rs. 1 Crore
+  biggest_2y_losers:
+    min_5d_dollar_volume_cr: 0.20 # Rs. 20 Lakhs 5-day avg
+    max_rank_2y: 3.45       # Rank between Min and 3.45
+  otc_scan:
+    min_price: 5.0          # mapped from > 0.05 USD to Rs. 5
+    max_price: 50.0         # cap speculative penny stocks at Rs. 50
+    min_volume: 15000       # 15,000 shares
+    min_dollar_volume_cr: 0.10 # Rs. 10 Lakhs
+    min_adr20: 3.5          # ADR% > 3.5%
+    min_trend_intensity: 95.0 # Trend Intensity > 95
+
+# Relative Strength (RS) Configurations
+relative_strength:
+  default_benchmark: "^CRSLDX" # Nifty 500
+  benchmarks:
+    nifty_50: "^NSEI"
+    nifty_500: "^CRSLDX"
+  sector_index_mapping:
+    "BANK": "^NSEBANK"
+    "FINANCIAL SERVICES": "^NSEBANK"
+    "IT": "^CNXIT"
+    "SOFTWARE": "^CNXIT"
+    "AUTO": "^CNXAUTO"
+    "AUTOMOBILE": "^CNXAUTO"
+    "PHARMA": "^CNXPHARMA"
+    "HEALTHCARE": "^CNXPHARMA"
+    "METAL": "^CNXMETAL"
+    "ENERGY": "^CNXENERGY"
+    "OIL & GAS": "^CNXENERGY"
+    "INFRA": "^CNXINFRA"
+    "INFRASTRUCTURE": "^CNXINFRA"
+    "REALTY": "^CNXREALTY"
+    "REAL ESTATE": "^CNXREALTY"
+    "MEDIA": "^CNXMEDIA"
+    "FMCG": "^CNXFMCG"
+  rs_windows: [21, 63, 126, 252] # 1M, 3M, 6M, 1Y
+  min_rs_rank_nifty500: 80.0    # Minimum percentile rank (0-100) vs Nifty 500
+
+

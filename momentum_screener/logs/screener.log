@@ -1,0 +1,520 @@
+2026-07-08 02:02:15 [INFO] ===================================================
+2026-07-08 02:02:15 [INFO]         StonksAI - Indian Momentum Screener        
+2026-07-08 02:02:15 [INFO] ===================================================
+2026-07-08 02:02:15 [INFO] Start Time: 2026-07-08 02:02:15
+2026-07-08 02:02:15 [INFO] Downloading NSE universe list from: https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv
+2026-07-08 02:02:16 [INFO] NSE universe constructed with 2382 symbols.
+2026-07-08 02:02:16 [INFO] Initializing parallel historical OHLCV download...
+2026-07-08 02:02:16 [INFO] Starting parallel EOD download for 2382 tickers with 15 threads...
+2026-07-08 02:05:55 [INFO] Parallel download finished. Successful: 2382, Failed/Skipped: 0.
+2026-07-08 02:05:55 [INFO] Calculating technical indicators for all downloaded stocks...
+2026-07-08 02:07:41 [INFO] Successfully calculated indicators for 2358 stocks.
+2026-07-08 02:07:41 [INFO] Percentile ranking stocks and calculating Weighted Momentum Scores...
+2026-07-08 02:07:41 [INFO] Applying stock criteria filters...
+2026-07-08 02:07:41 [INFO] Price filter (>= Rs. 100.0): kept 53 / 2358 stocks.
+2026-07-08 02:07:41 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 0 / 53 stocks.
+2026-07-08 02:07:41 [INFO] Volatility filter (ATR% >= 2.5%): kept 0 / 0 stocks.
+2026-07-08 02:07:41 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 0 / 0 stocks.
+2026-07-08 02:07:41 [WARNING] No stocks passed the filtering criteria. Watchlists will be empty.
+2026-07-08 02:07:41 [INFO] Slicing watchlists and writing export spreadsheets...
+2026-07-08 02:07:41 [WARNING] Empty DataFrame provided to exporter. Skipping exports.
+2026-07-08 02:07:41 [INFO] ===================================================
+2026-07-08 02:07:41 [INFO]           Screener Run Completed!                 
+2026-07-08 02:07:41 [INFO] Total Elapsed Time: 5.4 minutes
+2026-07-08 02:07:41 [INFO] Watchlists Saved to: D:\stonks\momentum_screener\outputs
+2026-07-08 02:07:41 [INFO] ===================================================
+2026-07-08 02:09:50 [INFO] ===================================================
+2026-07-08 02:09:50 [INFO]         StonksAI - Indian Momentum Screener        
+2026-07-08 02:09:50 [INFO] ===================================================
+2026-07-08 02:09:50 [INFO] Start Time: 2026-07-08 02:09:50
+2026-07-08 02:09:50 [INFO] Using cached NSE universe list.
+2026-07-08 02:09:50 [INFO] NSE universe constructed with 2382 symbols.
+2026-07-08 02:09:50 [INFO] Initializing parallel historical OHLCV download...
+2026-07-08 02:09:50 [INFO] Starting parallel EOD download for 2382 tickers with 15 threads...
+2026-07-08 02:10:03 [INFO] Parallel download finished. Successful: 2382, Failed/Skipped: 0.
+2026-07-08 02:10:03 [INFO] Calculating technical indicators for all downloaded stocks...
+2026-07-08 02:11:32 [INFO] Successfully calculated indicators for 2358 stocks.
+2026-07-08 02:11:32 [INFO] Percentile ranking stocks and calculating Weighted Momentum Scores...
+2026-07-08 02:11:32 [INFO] Applying stock criteria filters...
+2026-07-08 02:11:32 [INFO] Price filter (>= Rs. 100.0): kept 1619 / 2358 stocks.
+2026-07-08 02:11:32 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 324 / 1619 stocks.
+2026-07-08 02:11:32 [INFO] Volatility filter (ATR% >= 2.5%): kept 230 / 324 stocks.
+2026-07-08 02:11:32 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 90 / 230 stocks.
+2026-07-08 02:11:32 [INFO] Slicing watchlists and writing export spreadsheets...
+2026-07-08 02:11:32 [INFO] Screener compiled watchlists (Top 7% = 6 stocks):
+2026-07-08 02:11:32 [INFO]   - Combined Momentum: 6 stocks
+2026-07-08 02:11:32 [INFO]   - 1M Momentum: 6 stocks
+2026-07-08 02:11:32 [INFO]   - 3M Momentum: 6 stocks
+2026-07-08 02:11:32 [INFO]   - 6M Momentum: 6 stocks
+2026-07-08 02:11:32 [INFO]   - Intersection (in all 3): 1 stocks
+2026-07-08 02:11:32 [INFO] Exported multi-sheet Excel to: D:\stonks\momentum_screener\outputs\momentum_watchlist.xlsx
+2026-07-08 02:11:32 [INFO] Watchlist files saved to: D:\stonks\momentum_screener\outputs
+2026-07-08 02:11:32 [INFO] ===================================================
+2026-07-08 02:11:32 [INFO]           Screener Run Completed!                 
+2026-07-08 02:11:32 [INFO] Total Elapsed Time: 1.7 minutes
+2026-07-08 02:11:32 [INFO] Watchlists Saved to: D:\stonks\momentum_screener\outputs
+2026-07-08 02:11:32 [INFO] ===================================================
+2026-07-10 18:28:13 [INFO] ===================================================
+2026-07-10 18:28:13 [INFO]         StonksAI - Indian Momentum Screener        
+2026-07-10 18:28:13 [INFO] ===================================================
+2026-07-10 18:28:13 [INFO] Start Time: 2026-07-10 18:28:13
+2026-07-10 18:28:13 [INFO] Downloading NSE universe list from: https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv
+2026-07-10 18:28:16 [INFO] NSE universe constructed with 2384 symbols.
+2026-07-10 18:28:16 [INFO] Initializing parallel historical OHLCV download...
+2026-07-10 18:28:16 [INFO] Starting parallel EOD download for 2384 tickers with 15 threads...
+2026-07-10 18:31:20 [INFO] Parallel download finished. Successful: 2384, Failed/Skipped: 0.
+2026-07-10 18:31:20 [INFO] Calculating technical indicators for all downloaded stocks...
+2026-07-10 18:32:54 [INFO] Successfully calculated indicators for 2379 stocks.
+2026-07-10 18:32:54 [INFO] Percentile ranking stocks and calculating Weighted Momentum Scores...
+2026-07-10 18:32:54 [INFO] Applying stock criteria filters...
+2026-07-10 18:32:54 [INFO] Price filter (>= Rs. 100.0): kept 1627 / 2379 stocks.
+2026-07-10 18:32:54 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 325 / 1627 stocks.
+2026-07-10 18:32:54 [INFO] Volatility filter (ATR% >= 2.5%): kept 249 / 325 stocks.
+2026-07-10 18:32:54 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 105 / 249 stocks.
+2026-07-10 18:32:54 [INFO] Slicing watchlists and writing export spreadsheets...
+2026-07-10 18:32:54 [INFO] Screener compiled watchlists (Top 7% = 7 stocks):
+2026-07-10 18:32:54 [INFO]   - Combined Momentum: 7 stocks
+2026-07-10 18:32:54 [INFO]   - 1M Momentum: 7 stocks
+2026-07-10 18:32:54 [INFO]   - 3M Momentum: 7 stocks
+2026-07-10 18:32:54 [INFO]   - 6M Momentum: 7 stocks
+2026-07-10 18:32:54 [INFO]   - Intersection (in all 3): 1 stocks
+2026-07-10 18:32:54 [INFO] Exported multi-sheet Excel to: D:\stonks\momentum_screener\outputs\momentum_watchlist.xlsx
+2026-07-10 18:32:54 [INFO] Watchlist files saved to: D:\stonks\momentum_screener\outputs
+2026-07-10 18:32:54 [INFO] Running 8 custom EasyScans with timestamp: 20260710_183254...
+2026-07-10 18:32:54 [INFO] Scan 'recent_ipos': kept 117 stocks.
+2026-07-10 18:32:55 [INFO] Scan 'biggest_1m_gainers': kept 47 stocks.
+2026-07-10 18:32:55 [INFO] Scan 'biggest_1y_losers': kept 38 stocks.
+2026-07-10 18:32:55 [INFO] Scan 'five_day_gainers': kept 15 stocks.
+2026-07-10 18:32:55 [INFO] Scan 'adr_scan': kept 405 stocks.
+2026-07-10 18:32:55 [INFO] Scan 'high_trend_intensity': kept 419 stocks.
+2026-07-10 18:32:55 [INFO] Scan 'biggest_2y_losers': kept 0 stocks.
+2026-07-10 18:32:55 [INFO] Scan 'otc_scan': kept 91 stocks.
+2026-07-10 18:32:55 [INFO] Exported combined EasyScans Excel to: D:\stonks\momentum_screener\outputs\easy_scans_watchlist_20260710_183254.xlsx
+2026-07-10 18:32:55 [INFO] All EasyScan files exported successfully with timestamp 20260710_183254.
+2026-07-10 18:32:55 [INFO] ===================================================
+2026-07-10 18:32:55 [INFO]           Screener Run Completed!                 
+2026-07-10 18:32:55 [INFO] Total Elapsed Time: 4.7 minutes
+2026-07-10 18:32:55 [INFO] Watchlists & EasyScans Saved to: D:\stonks\momentum_screener\outputs
+2026-07-10 18:32:55 [INFO] ===================================================
+2026-07-19 03:07:28 [INFO] ===================================================
+2026-07-19 03:07:28 [INFO]         StonksAI - Indian Momentum Screener        
+2026-07-19 03:07:28 [INFO] ===================================================
+2026-07-19 03:07:28 [INFO] Start Time: 2026-07-19 03:07:28
+2026-07-19 03:07:28 [INFO] Downloading NSE universe list from: https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv
+2026-07-19 03:07:28 [INFO] NSE universe constructed with 2384 symbols.
+2026-07-19 03:07:28 [INFO] Initializing parallel historical OHLCV download...
+2026-07-19 03:07:28 [INFO] Starting parallel EOD download for 2384 tickers with 15 threads...
+2026-07-19 03:09:57 [INFO] Parallel download finished. Successful: 2384, Failed/Skipped: 0.
+2026-07-19 03:09:57 [INFO] Calculating technical indicators for all downloaded stocks...
+2026-07-19 03:12:30 [INFO] Successfully calculated indicators for 2381 stocks.
+2026-07-19 03:12:30 [INFO] Percentile ranking stocks and calculating Weighted Momentum Scores...
+2026-07-19 03:12:30 [INFO] Applying stock criteria filters...
+2026-07-19 03:12:30 [INFO] Price filter (>= Rs. 100.0): kept 1628 / 2381 stocks.
+2026-07-19 03:12:30 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 323 / 1628 stocks.
+2026-07-19 03:12:30 [INFO] Volatility filter (ATR% >= 2.5%): kept 239 / 323 stocks.
+2026-07-19 03:12:30 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 82 / 239 stocks.
+2026-07-19 03:12:30 [INFO] Slicing watchlists and writing export spreadsheets...
+2026-07-19 03:12:30 [INFO] Screener compiled watchlists (Top 7% = 5 stocks):
+2026-07-19 03:12:30 [INFO]   - Combined Momentum: 5 stocks
+2026-07-19 03:12:30 [INFO]   - 1M Momentum: 5 stocks
+2026-07-19 03:12:30 [INFO]   - 3M Momentum: 5 stocks
+2026-07-19 03:12:30 [INFO]   - 6M Momentum: 5 stocks
+2026-07-19 03:12:30 [INFO]   - Intersection (in all 3): 1 stocks
+2026-07-19 03:12:30 [INFO] Exported multi-sheet Excel to: D:\stonks\momentum_screener\outputs\momentum_watchlist.xlsx
+2026-07-19 03:12:30 [INFO] Watchlist files saved to: D:\stonks\momentum_screener\outputs
+2026-07-19 03:12:30 [INFO] Running 8 custom EasyScans with timestamp: 20260719_031230...
+2026-07-19 03:12:30 [INFO] Scan 'recent_ipos': kept 112 stocks.
+2026-07-19 03:12:30 [INFO] Scan 'biggest_1m_gainers': kept 42 stocks.
+2026-07-19 03:12:30 [INFO] Scan 'biggest_1y_losers': kept 46 stocks.
+2026-07-19 03:12:31 [INFO] Scan 'five_day_gainers': kept 6 stocks.
+2026-07-19 03:12:31 [INFO] Scan 'adr_scan': kept 395 stocks.
+2026-07-19 03:12:31 [INFO] Scan 'high_trend_intensity': kept 398 stocks.
+2026-07-19 03:12:31 [INFO] Scan 'biggest_2y_losers': kept 0 stocks.
+2026-07-19 03:12:31 [INFO] Scan 'otc_scan': kept 83 stocks.
+2026-07-19 03:12:31 [INFO] Exported combined EasyScans Excel to: D:\stonks\momentum_screener\outputs\easy_scans_watchlist_20260719_031230.xlsx
+2026-07-19 03:12:31 [INFO] All EasyScan files exported successfully with timestamp 20260719_031230.
+2026-07-19 03:12:31 [INFO] ===================================================
+2026-07-19 03:12:31 [INFO]           Screener Run Completed!                 
+2026-07-19 03:12:31 [INFO] Total Elapsed Time: 5.1 minutes
+2026-07-19 03:12:31 [INFO] Watchlists & EasyScans Saved to: D:\stonks\momentum_screener\outputs
+2026-07-19 03:12:31 [INFO] ===================================================
+2026-07-20 14:06:32 [INFO] ===================================================
+2026-07-20 14:06:32 [INFO]         StonksAI - Indian Momentum Screener        
+2026-07-20 14:06:32 [INFO] ===================================================
+2026-07-20 14:06:32 [INFO] Start Time: 2026-07-20 14:06:32
+2026-07-20 14:06:32 [INFO] Downloading NSE universe list from: https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv
+2026-07-20 14:06:33 [INFO] NSE universe constructed with 2402 symbols.
+2026-07-20 14:06:33 [INFO] Initializing parallel historical OHLCV download...
+2026-07-20 14:06:33 [INFO] Starting parallel EOD download for 2402 tickers with 15 threads...
+2026-07-20 14:08:40 [INFO] Parallel download finished. Successful: 2402, Failed/Skipped: 0.
+2026-07-20 14:08:40 [INFO] Calculating technical indicators for all downloaded stocks...
+2026-07-20 14:10:09 [INFO] Successfully calculated indicators for 2399 stocks.
+2026-07-20 14:10:09 [INFO] Percentile ranking stocks and calculating Weighted Momentum Scores...
+2026-07-20 14:10:09 [INFO] Applying stock criteria filters...
+2026-07-20 14:10:09 [INFO] Price filter (>= Rs. 100.0): kept 1628 / 2399 stocks.
+2026-07-20 14:10:09 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 320 / 1628 stocks.
+2026-07-20 14:10:09 [INFO] Volatility filter (ATR% >= 2.5%): kept 236 / 320 stocks.
+2026-07-20 14:10:09 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 95 / 236 stocks.
+2026-07-20 14:10:09 [INFO] Slicing watchlists and writing export spreadsheets...
+2026-07-20 14:10:09 [INFO] Screener compiled watchlists (Top 7% = 6 stocks):
+2026-07-20 14:10:09 [INFO]   - Combined Momentum: 6 stocks
+2026-07-20 14:10:09 [INFO]   - 1M Momentum: 6 stocks
+2026-07-20 14:10:09 [INFO]   - 3M Momentum: 6 stocks
+2026-07-20 14:10:09 [INFO]   - 6M Momentum: 6 stocks
+2026-07-20 14:10:09 [INFO]   - Intersection (in all 3): 1 stocks
+2026-07-20 14:10:10 [INFO] Exported multi-sheet Excel to: D:\stonks\momentum_screener\outputs\momentum_watchlist.xlsx
+2026-07-20 14:10:10 [INFO] Watchlist files saved to: D:\stonks\momentum_screener\outputs
+2026-07-20 14:10:10 [INFO] Running 8 custom EasyScans with timestamp: 20260720_141010...
+2026-07-20 14:10:10 [INFO] Scan 'recent_ipos': kept 102 stocks.
+2026-07-20 14:10:10 [INFO] Scan 'biggest_1m_gainers': kept 43 stocks.
+2026-07-20 14:10:10 [INFO] Scan 'biggest_1y_losers': kept 35 stocks.
+2026-07-20 14:10:10 [INFO] Scan 'five_day_gainers': kept 5 stocks.
+2026-07-20 14:10:10 [INFO] Scan 'adr_scan': kept 392 stocks.
+2026-07-20 14:10:10 [INFO] Scan 'high_trend_intensity': kept 352 stocks.
+2026-07-20 14:10:10 [INFO] Scan 'biggest_2y_losers': kept 0 stocks.
+2026-07-20 14:10:10 [INFO] Scan 'otc_scan': kept 69 stocks.
+2026-07-20 14:10:10 [INFO] Exported combined EasyScans Excel to: D:\stonks\momentum_screener\outputs\easy_scans_watchlist_20260720_141010.xlsx
+2026-07-20 14:10:10 [INFO] All EasyScan files exported successfully with timestamp 20260720_141010.
+2026-07-20 14:10:10 [INFO] Running Multi-Level Stock Filtering & Sector Hierarchy Analysis...
+2026-07-20 14:10:10 [INFO] Fetching Sector/Industry info for 2402 stocks...
+2026-07-20 14:17:50 [INFO] Updated sector mapping cache with 2402 stocks.
+2026-07-20 14:17:50 [INFO] Level 1: Found 737 unique candidate stocks across all EasyScans.
+2026-07-20 14:17:50 [INFO] Level 2: Filtered out stocks with Scan_Score < 2. Retained 230 / 737 stocks.
+2026-07-20 14:17:50 [INFO] Exported multi-tab Filtered Stocks Excel to: D:\stonks\momentum_screener\outputs\filtered_stocks_20-07-2026.xlsx
+2026-07-20 14:17:50 [INFO] Exported Filtered Stocks CSV to: D:\stonks\momentum_screener\outputs\filtered_stocks_20-07-2026.csv
+2026-07-20 14:17:50 [INFO] Exported TradingView list to: D:\stonks\momentum_screener\outputs\tradingview_filtered_stocks_20-07-2026.txt
+2026-07-20 14:17:50 [INFO] ===================================================
+2026-07-20 14:17:50 [INFO]           Screener Run Completed!                 
+2026-07-20 14:17:50 [INFO] Total Elapsed Time: 11.3 minutes
+2026-07-20 14:17:50 [INFO] Watchlists & EasyScans Saved to: D:\stonks\momentum_screener\outputs
+2026-07-20 14:17:50 [INFO] ===================================================
+2026-07-20 18:00:11 [INFO] ===================================================
+2026-07-20 18:00:11 [INFO]         StonksAI - Indian Momentum Screener        
+2026-07-20 18:00:11 [INFO] ===================================================
+2026-07-20 18:00:11 [INFO] Start Time: 2026-07-20 18:00:11
+2026-07-20 18:00:11 [INFO] Using cached NSE universe list.
+2026-07-20 18:00:11 [INFO] NSE universe constructed with 2402 symbols.
+2026-07-20 18:00:11 [INFO] Initializing parallel historical OHLCV download...
+2026-07-20 18:00:11 [INFO] Starting parallel EOD download for 2402 tickers with 15 threads...
+2026-07-20 18:00:21 [INFO] Parallel download finished. Successful: 2402, Failed/Skipped: 0.
+2026-07-20 18:00:21 [INFO] Calculating technical indicators for all downloaded stocks...
+2026-07-20 18:01:28 [INFO] Successfully calculated indicators for 2399 stocks.
+2026-07-20 18:01:28 [INFO] Percentile ranking stocks and calculating Weighted Momentum Scores...
+2026-07-20 18:01:28 [INFO] Applying stock criteria filters...
+2026-07-20 18:01:28 [INFO] Price filter (>= Rs. 100.0): kept 1628 / 2399 stocks.
+2026-07-20 18:01:28 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 320 / 1628 stocks.
+2026-07-20 18:01:28 [INFO] Volatility filter (ATR% >= 2.5%): kept 236 / 320 stocks.
+2026-07-20 18:01:28 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 95 / 236 stocks.
+2026-07-20 18:01:28 [INFO] Slicing watchlists and writing export spreadsheets...
+2026-07-20 18:01:28 [INFO] Screener compiled watchlists (Top 7% = 6 stocks):
+2026-07-20 18:01:28 [INFO]   - Combined Momentum: 6 stocks
+2026-07-20 18:01:28 [INFO]   - 1M Momentum: 6 stocks
+2026-07-20 18:01:28 [INFO]   - 3M Momentum: 6 stocks
+2026-07-20 18:01:28 [INFO]   - 6M Momentum: 6 stocks
+2026-07-20 18:01:28 [INFO]   - Intersection (in all 3): 1 stocks
+2026-07-20 18:01:28 [INFO] Exported multi-sheet Excel to: D:\stonks\momentum_screener\outputs\momentum_watchlist.xlsx
+2026-07-20 18:01:28 [INFO] Watchlist files saved to: D:\stonks\momentum_screener\outputs
+2026-07-20 18:01:28 [INFO] Running 8 custom EasyScans with timestamp: 20260720_180128...
+2026-07-20 18:01:28 [INFO] Scan 'recent_ipos': kept 102 stocks.
+2026-07-20 18:01:28 [INFO] Scan 'biggest_1m_gainers': kept 43 stocks.
+2026-07-20 18:01:28 [INFO] Scan 'biggest_1y_losers': kept 35 stocks.
+2026-07-20 18:01:28 [INFO] Scan 'five_day_gainers': kept 5 stocks.
+2026-07-20 18:01:28 [INFO] Scan 'adr_scan': kept 392 stocks.
+2026-07-20 18:01:28 [INFO] Scan 'high_trend_intensity': kept 352 stocks.
+2026-07-20 18:01:28 [INFO] Scan 'biggest_2y_losers': kept 0 stocks.
+2026-07-20 18:01:28 [INFO] Scan 'otc_scan': kept 69 stocks.
+2026-07-20 18:01:29 [INFO] Exported combined EasyScans Excel to: D:\stonks\momentum_screener\outputs\easy_scans_watchlist_20260720_180128.xlsx
+2026-07-20 18:01:29 [INFO] All EasyScan files exported successfully with timestamp 20260720_180128.
+2026-07-20 18:01:29 [INFO] Running Multi-Level Stock Filtering & Sector Hierarchy Analysis...
+2026-07-20 18:01:29 [INFO] Fetching Sector/Industry info for 220 candidate stocks...
+2026-07-20 18:03:07 [INFO] Updated sector mapping cache for 220 stocks.
+2026-07-20 18:03:07 [INFO] Level 1: Found 737 unique candidate stocks across all EasyScans.
+2026-07-20 18:03:07 [INFO] Level 2: Filtered out stocks with Scan_Score < 2. Retained 230 / 737 stocks.
+2026-07-20 18:03:08 [INFO] Exported multi-tab Filtered Stocks Excel to: D:\stonks\momentum_screener\outputs\filtered_stocks_20-07-2026.xlsx
+2026-07-20 18:03:08 [INFO] Exported Filtered Stocks CSV to: D:\stonks\momentum_screener\outputs\filtered_stocks_20-07-2026.csv
+2026-07-20 18:03:08 [INFO] Exported TradingView list to: D:\stonks\momentum_screener\outputs\tradingview_filtered_stocks_20-07-2026.txt
+2026-07-20 18:03:08 [INFO] ===================================================
+2026-07-20 18:03:08 [INFO]           Screener Run Completed!                 
+2026-07-20 18:03:08 [INFO] Total Elapsed Time: 3.0 minutes
+2026-07-20 18:03:08 [INFO] Watchlists & EasyScans Saved to: D:\stonks\momentum_screener\outputs
+2026-07-20 18:03:08 [INFO] ===================================================
+2026-07-21 23:36:02 [INFO] ===================================================
+2026-07-21 23:36:02 [INFO]         StonksAI - Indian Momentum Screener        
+2026-07-21 23:36:02 [INFO] ===================================================
+2026-07-21 23:36:02 [INFO] Start Time: 2026-07-21 23:36:02
+2026-07-21 23:36:02 [INFO] Downloading NSE universe list from: https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv
+2026-07-21 23:36:03 [INFO] NSE universe constructed with 2386 symbols.
+2026-07-21 23:36:03 [INFO] Initializing parallel historical OHLCV download...
+2026-07-21 23:36:03 [INFO] Starting parallel EOD download for 2386 tickers with 15 threads...
+2026-07-21 23:36:17 [INFO] Parallel download finished. Successful: 2386, Failed/Skipped: 0.
+2026-07-21 23:36:17 [INFO] Calculating technical indicators for all downloaded stocks...
+2026-07-21 23:37:35 [INFO] Successfully calculated indicators for 2381 stocks.
+2026-07-21 23:37:35 [INFO] Percentile ranking stocks and calculating Weighted Momentum Scores...
+2026-07-21 23:37:35 [INFO] Applying stock criteria filters...
+2026-07-21 23:37:35 [INFO] Price filter (>= Rs. 100.0): kept 1628 / 2381 stocks.
+2026-07-21 23:37:35 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 320 / 1628 stocks.
+2026-07-21 23:37:35 [INFO] Volatility filter (ATR% >= 2.5%): kept 236 / 320 stocks.
+2026-07-21 23:37:35 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 95 / 236 stocks.
+2026-07-21 23:37:35 [INFO] Slicing watchlists and writing export spreadsheets...
+2026-07-21 23:37:35 [INFO] Screener compiled watchlists (Top 7% = 6 stocks):
+2026-07-21 23:37:35 [INFO]   - Combined Momentum: 6 stocks
+2026-07-21 23:37:35 [INFO]   - 1M Momentum: 6 stocks
+2026-07-21 23:37:35 [INFO]   - 3M Momentum: 6 stocks
+2026-07-21 23:37:35 [INFO]   - 6M Momentum: 6 stocks
+2026-07-21 23:37:35 [INFO]   - Intersection (in all 3): 1 stocks
+2026-07-21 23:37:35 [INFO] Exported multi-sheet Excel to: D:\stonks\momentum_screener\outputs\momentum_watchlist.xlsx
+2026-07-21 23:37:35 [INFO] Watchlist files saved to: D:\stonks\momentum_screener\outputs
+2026-07-21 23:37:35 [INFO] Running 8 custom EasyScans with timestamp: 20260721_233735...
+2026-07-21 23:37:35 [INFO] Scan 'recent_ipos': kept 102 stocks.
+2026-07-21 23:37:35 [INFO] Scan 'biggest_1m_gainers': kept 43 stocks.
+2026-07-21 23:37:35 [INFO] Scan 'biggest_1y_losers': kept 39 stocks.
+2026-07-21 23:37:36 [INFO] Scan 'five_day_gainers': kept 5 stocks.
+2026-07-21 23:37:36 [INFO] Scan 'adr_scan': kept 392 stocks.
+2026-07-21 23:37:36 [INFO] Scan 'high_trend_intensity': kept 352 stocks.
+2026-07-21 23:37:36 [INFO] Scan 'biggest_2y_losers': kept 0 stocks.
+2026-07-21 23:37:36 [INFO] Scan 'otc_scan': kept 69 stocks.
+2026-07-21 23:37:36 [INFO] Exported combined EasyScans Excel to: D:\stonks\momentum_screener\outputs\easy_scans_watchlist_20260721_233735.xlsx
+2026-07-21 23:37:36 [INFO] All EasyScan files exported successfully with timestamp 20260721_233735.
+2026-07-21 23:37:36 [INFO] Running Multi-Level Stock Filtering & Sector Hierarchy Analysis...
+2026-07-21 23:37:36 [INFO] Fetching Sector/Industry info for 4 candidate stocks...
+2026-07-21 23:37:37 [INFO] Updated sector mapping cache for 4 stocks.
+2026-07-21 23:37:37 [INFO] Level 1: Found 740 unique candidate stocks across all EasyScans.
+2026-07-21 23:37:37 [INFO] Level 2: Filtered out stocks with Scan_Score < 2. Retained 231 / 740 stocks.
+2026-07-21 23:37:37 [INFO] Exported multi-tab Filtered Stocks Excel to: D:\stonks\momentum_screener\outputs\filtered_stocks_21-07-2026.xlsx
+2026-07-21 23:37:37 [INFO] Exported Filtered Stocks CSV to: D:\stonks\momentum_screener\outputs\filtered_stocks_21-07-2026.csv
+2026-07-21 23:37:37 [INFO] Exported TradingView list to: D:\stonks\momentum_screener\outputs\tradingview_filtered_stocks_21-07-2026.txt
+2026-07-21 23:37:37 [INFO] ===================================================
+2026-07-21 23:37:37 [INFO]           Screener Run Completed!                 
+2026-07-21 23:37:37 [INFO] Total Elapsed Time: 1.6 minutes
+2026-07-21 23:37:37 [INFO] Watchlists & EasyScans Saved to: D:\stonks\momentum_screener\outputs
+2026-07-21 23:37:37 [INFO] ===================================================
+2026-07-29 21:04:20 [INFO] ===================================================
+2026-07-29 21:04:20 [INFO]         StonksAI - Indian Momentum Screener        
+2026-07-29 21:04:20 [INFO] ===================================================
+2026-07-29 21:04:20 [INFO] Start Time: 2026-07-29 21:04:20
+2026-07-29 21:04:20 [INFO] Downloading NSE universe list from: https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv
+2026-07-29 21:04:22 [INFO] NSE universe constructed with 2387 symbols.
+2026-07-29 21:04:22 [INFO] Initializing parallel historical OHLCV download...
+2026-07-29 21:04:22 [INFO] Starting parallel EOD download for 2387 tickers with 15 threads...
+2026-07-29 21:06:44 [INFO] Parallel download finished. Successful: 2387, Failed/Skipped: 0.
+2026-07-29 21:06:44 [INFO] Downloading 12 benchmark indices for Relative Strength calculations...
+2026-07-29 21:06:44 [INFO] Starting parallel EOD download for 12 tickers with 5 threads...
+2026-07-29 21:06:45 [INFO] Parallel download finished. Successful: 12, Failed/Skipped: 0.
+2026-07-29 21:06:45 [INFO] Loading Sector & Industry classifications...
+2026-07-29 21:06:45 [INFO] Fetching Sector/Industry info for 484 candidate stocks...
+2026-07-29 21:11:17 [INFO] Updated sector mapping cache for 484 stocks.
+2026-07-29 21:11:17 [INFO] Calculating technical indicators & relative strength for all downloaded stocks...
+2026-07-29 21:16:04 [INFO] Successfully calculated indicators for 2385 stocks.
+2026-07-29 21:16:04 [INFO] Percentile ranking stocks and calculating Weighted Momentum Scores...
+2026-07-29 21:16:04 [INFO] Applying stock criteria filters...
+2026-07-29 21:16:04 [INFO] Price filter (>= Rs. 100.0): kept 1628 / 2385 stocks.
+2026-07-29 21:16:04 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 315 / 1628 stocks.
+2026-07-29 21:16:04 [INFO] Volatility filter (ATR% >= 2.5%): kept 232 / 315 stocks.
+2026-07-29 21:16:04 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 65 / 232 stocks.
+2026-07-29 21:16:04 [INFO] Slicing watchlists and writing export spreadsheets...
+2026-07-29 21:16:04 [INFO] Screener compiled watchlists (Top 7% = 4 stocks):
+2026-07-29 21:16:04 [INFO]   - Combined Momentum: 4 stocks
+2026-07-29 21:16:04 [INFO]   - 1M Momentum: 4 stocks
+2026-07-29 21:16:04 [INFO]   - 3M Momentum: 4 stocks
+2026-07-29 21:16:04 [INFO]   - 6M Momentum: 4 stocks
+2026-07-29 21:16:04 [INFO]   - Intersection (in all 3): 1 stocks
+2026-07-29 21:16:06 [INFO] Exported multi-sheet Excel to: D:\stonks\momentum_screener\outputs\momentum_watchlist.xlsx
+2026-07-29 21:16:06 [INFO] Watchlist files saved to: D:\stonks\momentum_screener\outputs
+2026-07-29 21:16:06 [INFO] Running 8 custom EasyScans with timestamp: 20260729_211606...
+2026-07-29 21:16:06 [INFO] Scan 'recent_ipos': kept 119 stocks.
+2026-07-29 21:16:06 [INFO] Scan 'biggest_1m_gainers': kept 49 stocks.
+2026-07-29 21:16:06 [INFO] Scan 'biggest_1y_losers': kept 37 stocks.
+2026-07-29 21:16:06 [INFO] Scan 'five_day_gainers': kept 10 stocks.
+2026-07-29 21:16:06 [INFO] Scan 'adr_scan': kept 407 stocks.
+2026-07-29 21:16:06 [INFO] Scan 'high_trend_intensity': kept 322 stocks.
+2026-07-29 21:16:06 [INFO] Scan 'biggest_2y_losers': kept 0 stocks.
+2026-07-29 21:16:06 [INFO] Scan 'otc_scan': kept 84 stocks.
+2026-07-29 21:16:08 [INFO] Exported combined EasyScans Excel to: D:\stonks\momentum_screener\outputs\easy_scans_watchlist_20260729_211606.xlsx
+2026-07-29 21:16:08 [INFO] All EasyScan files exported successfully with timestamp 20260729_211606.
+2026-07-29 21:16:08 [INFO] Running Multi-Level Stock Filtering & Sector Hierarchy Analysis...
+2026-07-29 21:16:08 [INFO] Fetching Sector/Industry info for 4 candidate stocks...
+2026-07-29 21:16:16 [INFO] Updated sector mapping cache for 4 stocks.
+2026-07-29 21:16:16 [INFO] Level 1: Found 768 unique candidate stocks across all EasyScans.
+2026-07-29 21:16:16 [INFO] Level 2: Filtered out stocks with Scan_Score < 2. Retained 225 / 768 stocks.
+2026-07-29 21:16:16 [INFO] Exported multi-tab Filtered Stocks Excel to: D:\stonks\momentum_screener\outputs\filtered_stocks_29-07-2026.xlsx
+2026-07-29 21:16:16 [INFO] Exported Filtered Stocks CSV to: D:\stonks\momentum_screener\outputs\filtered_stocks_29-07-2026.csv
+2026-07-29 21:16:16 [INFO] Exported TradingView list to: D:\stonks\momentum_screener\outputs\tradingview_filtered_stocks_29-07-2026.txt
+2026-07-29 21:16:16 [INFO] ===================================================
+2026-07-29 21:16:16 [INFO]           Screener Run Completed!                 
+2026-07-29 21:16:16 [INFO] Total Elapsed Time: 11.9 minutes
+2026-07-29 21:16:16 [INFO] Watchlists & EasyScans Saved to: D:\stonks\momentum_screener\outputs
+2026-07-29 21:16:16 [INFO] ===================================================
+2026-07-29 22:02:40 [INFO] ===================================================
+2026-07-29 22:02:40 [INFO]         StonksAI - Indian Relative Strength Screener 
+2026-07-29 22:02:40 [INFO] ===================================================
+2026-07-29 22:02:40 [INFO] Start Time: 2026-07-29 22:02:40
+2026-07-29 22:02:40 [INFO] Using cached NSE universe list.
+2026-07-29 22:02:40 [INFO] NSE universe constructed with 2387 symbols.
+2026-07-29 22:02:40 [INFO] Initializing parallel historical OHLCV download...
+2026-07-29 22:02:40 [INFO] Starting parallel EOD download for 2387 tickers with 15 threads...
+2026-07-29 22:03:00 [INFO] Parallel download finished. Successful: 2387, Failed/Skipped: 0.
+2026-07-29 22:03:00 [INFO] Downloading 12 benchmark indices for Relative Strength calculations...
+2026-07-29 22:03:00 [INFO] Starting parallel EOD download for 12 tickers with 5 threads...
+2026-07-29 22:03:00 [INFO] Parallel download finished. Successful: 12, Failed/Skipped: 0.
+2026-07-29 22:03:00 [INFO] Loading Sector & Industry classifications...
+2026-07-29 22:03:00 [INFO] Fetching Sector/Industry info for 47 candidate stocks...
+2026-07-29 22:03:33 [INFO] Updated sector mapping cache for 47 stocks.
+2026-07-29 22:03:33 [INFO] Calculating technical indicators & relative strength for all stocks...
+2026-07-29 22:06:43 [INFO] Successfully calculated indicators for 2385 stocks.
+2026-07-29 22:06:43 [INFO] Percentile ranking stocks and calculating Relative Strength ranks...
+2026-07-29 22:06:43 [INFO] Applying Relative Strength screening criteria...
+2026-07-29 22:06:43 [INFO] Price filter (>= Rs. 100.0): kept 1628 / 2385 stocks.
+2026-07-29 22:06:43 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 315 / 1628 stocks.
+2026-07-29 22:06:43 [INFO] Volatility filter (ATR% >= 2.5%): kept 232 / 315 stocks.
+2026-07-29 22:06:43 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 65 / 232 stocks.
+2026-07-29 22:06:43 [INFO] RS Filter (Mansfield Nifty500 > 0 & Rank >= 80.0): kept 51 / 65 stocks.
+2026-07-29 22:06:43 [INFO] Slicing watchlists and writing exports...
+2026-07-29 22:06:43 [INFO] Exported Relative Strength watchlists to Excel: D:\stonks\momentum_screener\outputs\rs_watchlist_29-07-2026.xlsx
+2026-07-29 22:06:44 [INFO] ===================================================
+2026-07-29 22:06:44 [INFO]        Relative Strength Screener Run Completed!   
+2026-07-29 22:06:44 [INFO] Total Elapsed Time: 4.1 minutes
+2026-07-29 22:06:44 [INFO] RS Watchlists Saved to: D:\stonks\momentum_screener\outputs
+2026-07-29 22:06:44 [INFO] ===================================================
+2026-08-19 23:18:01 [INFO] ===================================================
+2026-08-19 23:18:01 [INFO]         StonksAI - Indian Momentum Screener        
+2026-08-19 23:18:01 [INFO] ===================================================
+2026-08-19 23:18:01 [INFO] Start Time: 2026-08-19 23:18:01
+2026-08-19 23:18:01 [INFO] Downloading NSE universe list from: https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv
+2026-08-19 23:18:03 [INFO] NSE universe constructed with 2553 symbols.
+2026-08-19 23:18:03 [INFO] Initializing parallel historical OHLCV download...
+2026-08-19 23:18:03 [INFO] Starting parallel EOD download for 2553 tickers with 15 threads...
+2026-08-19 23:23:49 [INFO] Parallel download finished. Successful: 2552, Failed/Skipped: 1.
+2026-08-19 23:23:49 [INFO] Downloading 12 benchmark indices for Relative Strength calculations...
+2026-08-19 23:23:49 [INFO] Starting parallel EOD download for 12 tickers with 5 threads...
+2026-08-19 23:23:51 [INFO] Parallel download finished. Successful: 12, Failed/Skipped: 0.
+2026-08-19 23:23:51 [INFO] Loading Sector & Industry classifications...
+2026-08-19 23:23:51 [INFO] Fetching Sector/Industry info for 211 candidate stocks...
+2026-08-19 23:25:33 [INFO] Updated sector mapping cache for 211 stocks.
+2026-08-19 23:25:33 [INFO] Calculating technical indicators & relative strength for all downloaded stocks...
+2026-08-19 23:29:26 [INFO] Successfully calculated indicators for 2401 stocks.
+2026-08-19 23:29:26 [INFO] Percentile ranking stocks and calculating Weighted Momentum Scores...
+2026-08-19 23:29:26 [INFO] Applying stock criteria filters...
+2026-08-19 23:29:26 [INFO] Price filter (>= Rs. 100.0): kept 1632 / 2401 stocks.
+2026-08-19 23:29:26 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 325 / 1632 stocks.
+2026-08-19 23:29:26 [INFO] Volatility filter (ATR% >= 2.5%): kept 217 / 325 stocks.
+2026-08-19 23:29:26 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 87 / 217 stocks.
+2026-08-19 23:29:26 [INFO] Slicing watchlists and writing export spreadsheets...
+2026-08-19 23:29:26 [INFO] Screener compiled watchlists (Top 7% = 6 stocks):
+2026-08-19 23:29:26 [INFO]   - Combined Momentum: 6 stocks
+2026-08-19 23:29:26 [INFO]   - 1M Momentum: 6 stocks
+2026-08-19 23:29:26 [INFO]   - 3M Momentum: 6 stocks
+2026-08-19 23:29:26 [INFO]   - 6M Momentum: 6 stocks
+2026-08-19 23:29:26 [INFO]   - Intersection (in all 3): 0 stocks
+2026-08-19 23:29:27 [INFO] Exported multi-sheet Excel to: D:\stonks\momentum_screener\outputs\momentum_watchlist.xlsx
+2026-08-19 23:29:27 [INFO] Watchlist files saved to: D:\stonks\momentum_screener\outputs
+2026-08-19 23:29:27 [INFO] Running 8 custom EasyScans with timestamp: 20260819_232927...
+2026-08-19 23:29:27 [INFO] Scan 'recent_ipos': kept 116 stocks.
+2026-08-19 23:29:27 [INFO] Scan 'biggest_1m_gainers': kept 41 stocks.
+2026-08-19 23:29:27 [INFO] Scan 'biggest_1y_losers': kept 39 stocks.
+2026-08-19 23:29:27 [INFO] Scan 'five_day_gainers': kept 18 stocks.
+2026-08-19 23:29:27 [INFO] Scan 'adr_scan': kept 380 stocks.
+2026-08-19 23:29:27 [INFO] Scan 'high_trend_intensity': kept 357 stocks.
+2026-08-19 23:29:27 [INFO] Scan 'biggest_2y_losers': kept 0 stocks.
+2026-08-19 23:29:27 [INFO] Scan 'otc_scan': kept 117 stocks.
+2026-08-19 23:29:28 [INFO] Exported combined EasyScans Excel to: D:\stonks\momentum_screener\outputs\easy_scans_watchlist_20260819_232927.xlsx
+2026-08-19 23:29:28 [INFO] All EasyScan files exported successfully with timestamp 20260819_232927.
+2026-08-19 23:29:28 [INFO] Running Multi-Level Stock Filtering & Sector Hierarchy Analysis...
+2026-08-19 23:29:28 [INFO] Fetching Sector/Industry info for 2 candidate stocks...
+2026-08-19 23:29:35 [INFO] Updated sector mapping cache for 2 stocks.
+2026-08-19 23:29:35 [INFO] Level 1: Found 800 unique candidate stocks across all EasyScans.
+2026-08-19 23:29:35 [INFO] Level 2: Filtered out stocks with Scan_Score < 2. Retained 232 / 800 stocks.
+2026-08-19 23:29:36 [INFO] Exported multi-tab Filtered Stocks Excel to: D:\stonks\momentum_screener\outputs\filtered_stocks_19-08-2026.xlsx
+2026-08-19 23:29:36 [INFO] Exported Filtered Stocks CSV to: D:\stonks\momentum_screener\outputs\filtered_stocks_19-08-2026.csv
+2026-08-19 23:29:36 [INFO] Exported TradingView list to: D:\stonks\momentum_screener\outputs\tradingview_filtered_stocks_19-08-2026.txt
+2026-08-19 23:29:36 [INFO] ===================================================
+2026-08-19 23:29:36 [INFO]           Screener Run Completed!                 
+2026-08-19 23:29:36 [INFO] Total Elapsed Time: 11.6 minutes
+2026-08-19 23:29:36 [INFO] Watchlists & EasyScans Saved to: D:\stonks\momentum_screener\outputs
+2026-08-19 23:29:36 [INFO] ===================================================
+2026-08-20 00:13:54 [INFO] ===================================================
+2026-08-20 00:13:54 [INFO]         StonksAI - Indian Relative Strength Screener 
+2026-08-20 00:13:54 [INFO] ===================================================
+2026-08-20 00:13:54 [INFO] Start Time: 2026-08-20 00:13:54
+2026-08-20 00:13:54 [INFO] Using cached NSE universe list.
+2026-08-20 00:13:54 [INFO] NSE universe constructed with 2553 symbols.
+2026-08-20 00:13:54 [INFO] Initializing parallel historical OHLCV download...
+2026-08-20 00:13:54 [INFO] Starting parallel EOD download for 2553 tickers with 15 threads...
+2026-08-20 00:14:09 [INFO] Parallel download finished. Successful: 2552, Failed/Skipped: 1.
+2026-08-20 00:14:09 [INFO] Downloading 12 benchmark indices for Relative Strength calculations...
+2026-08-20 00:14:09 [INFO] Starting parallel EOD download for 12 tickers with 5 threads...
+2026-08-20 00:14:09 [INFO] Parallel download finished. Successful: 12, Failed/Skipped: 0.
+2026-08-20 00:14:09 [INFO] Loading Sector & Industry classifications...
+2026-08-20 00:14:09 [INFO] Fetching Sector/Industry info for 122 candidate stocks...
+2026-08-20 00:15:41 [INFO] Updated sector mapping cache for 122 stocks.
+2026-08-20 00:15:41 [INFO] Calculating technical indicators & relative strength for all stocks...
+2026-08-20 00:18:08 [INFO] Successfully calculated indicators for 2401 stocks.
+2026-08-20 00:18:08 [INFO] Percentile ranking stocks and calculating Relative Strength ranks...
+2026-08-20 00:18:08 [INFO] Applying Relative Strength screening criteria...
+2026-08-20 00:18:08 [INFO] Price filter (>= Rs. 100.0): kept 1632 / 2401 stocks.
+2026-08-20 00:18:08 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 325 / 1632 stocks.
+2026-08-20 00:18:08 [INFO] Volatility filter (ATR% >= 2.5%): kept 217 / 325 stocks.
+2026-08-20 00:18:08 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 86 / 217 stocks.
+2026-08-20 00:18:08 [INFO] RS Filter (Mansfield Nifty500 > 0 & Rank >= 80.0): kept 61 / 86 stocks.
+2026-08-20 00:18:08 [INFO] Slicing watchlists and writing exports...
+2026-08-20 00:18:08 [INFO] Exported Relative Strength watchlists to Excel: D:\stonks\momentum_screener\outputs\rs_watchlist_20-08-2026.xlsx
+2026-08-20 00:18:08 [INFO] ===================================================
+2026-08-20 00:18:08 [INFO]        Relative Strength Screener Run Completed!   
+2026-08-20 00:18:08 [INFO] Total Elapsed Time: 4.2 minutes
+2026-08-20 00:18:08 [INFO] RS Watchlists Saved to: D:\stonks\momentum_screener\outputs
+2026-08-20 00:18:08 [INFO] ===================================================
+2026-08-20 00:21:25 [INFO] ===================================================
+2026-08-20 00:21:25 [INFO]         StonksAI - Indian Momentum Screener        
+2026-08-20 00:21:25 [INFO] ===================================================
+2026-08-20 00:21:25 [INFO] Start Time: 2026-08-20 00:21:25
+2026-08-20 00:21:25 [INFO] Using cached NSE universe list.
+2026-08-20 00:21:25 [INFO] NSE universe constructed with 2553 symbols.
+2026-08-20 00:21:25 [INFO] Initializing parallel historical OHLCV download...
+2026-08-20 00:21:25 [INFO] Starting parallel EOD download for 2553 tickers with 15 threads...
+2026-08-20 00:21:37 [INFO] Parallel download finished. Successful: 2552, Failed/Skipped: 1.
+2026-08-20 00:21:37 [INFO] Downloading 12 benchmark indices for Relative Strength calculations...
+2026-08-20 00:21:37 [INFO] Starting parallel EOD download for 12 tickers with 5 threads...
+2026-08-20 00:21:37 [INFO] Parallel download finished. Successful: 12, Failed/Skipped: 0.
+2026-08-20 00:21:37 [INFO] Loading Sector & Industry classifications...
+2026-08-20 00:21:37 [INFO] Fetching Sector/Industry info for 122 candidate stocks...
+2026-08-20 00:23:10 [INFO] Updated sector mapping cache for 122 stocks.
+2026-08-20 00:23:10 [INFO] Calculating technical indicators & relative strength for all downloaded stocks...
+2026-08-20 00:25:53 [INFO] Successfully calculated indicators for 2401 stocks.
+2026-08-20 00:25:53 [INFO] Percentile ranking stocks and calculating Weighted Momentum Scores...
+2026-08-20 00:25:53 [INFO] Applying stock criteria filters...
+2026-08-20 00:25:53 [INFO] Price filter (>= Rs. 100.0): kept 1632 / 2401 stocks.
+2026-08-20 00:25:53 [INFO] Liquidity filter (Avg Daily Dollar Vol >= Rs. 75.0 Cr): kept 325 / 1632 stocks.
+2026-08-20 00:25:53 [INFO] Volatility filter (ATR% >= 2.5%): kept 217 / 325 stocks.
+2026-08-20 00:25:53 [INFO] Trend uptrend filters (Price > 21EMA/50SMA/200SMA by 1%): kept 86 / 217 stocks.
+2026-08-20 00:25:53 [INFO] Slicing watchlists and writing export spreadsheets...
+2026-08-20 00:25:53 [INFO] Screener compiled watchlists (Top 7% = 6 stocks):
+2026-08-20 00:25:53 [INFO]   - Combined Momentum: 6 stocks
+2026-08-20 00:25:53 [INFO]   - 1M Momentum: 6 stocks
+2026-08-20 00:25:53 [INFO]   - 3M Momentum: 6 stocks
+2026-08-20 00:25:53 [INFO]   - 6M Momentum: 6 stocks
+2026-08-20 00:25:53 [INFO]   - Intersection (in all 3): 0 stocks
+2026-08-20 00:25:54 [INFO] Exported multi-sheet Excel to: D:\stonks\momentum_screener\outputs\momentum_watchlist.xlsx
+2026-08-20 00:25:54 [INFO] Watchlist files saved to: D:\stonks\momentum_screener\outputs
+2026-08-20 00:25:54 [INFO] Running 8 custom EasyScans with timestamp: 20260820_002554...
+2026-08-20 00:25:54 [INFO] Scan 'recent_ipos': kept 116 stocks.
+2026-08-20 00:25:54 [INFO] Scan 'biggest_1m_gainers': kept 41 stocks.
+2026-08-20 00:25:54 [INFO] Scan 'biggest_1y_losers': kept 39 stocks.
+2026-08-20 00:25:54 [INFO] Scan 'five_day_gainers': kept 18 stocks.
+2026-08-20 00:25:54 [INFO] Scan 'adr_scan': kept 380 stocks.
+2026-08-20 00:25:54 [INFO] Scan 'high_trend_intensity': kept 357 stocks.
+2026-08-20 00:25:54 [INFO] Scan 'biggest_2y_losers': kept 0 stocks.
+2026-08-20 00:25:54 [INFO] Scan 'otc_scan': kept 117 stocks.
+2026-08-20 00:25:55 [INFO] Exported combined EasyScans Excel to: D:\stonks\momentum_screener\outputs\easy_scans_watchlist_20260820_002554.xlsx
+2026-08-20 00:25:55 [INFO] All EasyScan files exported successfully with timestamp 20260820_002554.
+2026-08-20 00:25:55 [INFO] Running Multi-Level Stock Filtering & Sector Hierarchy Analysis...
+2026-08-20 00:25:55 [INFO] Fetching Sector/Industry info for 2 candidate stocks...
+2026-08-20 00:25:56 [INFO] Updated sector mapping cache for 2 stocks.
+2026-08-20 00:25:56 [INFO] Level 1: Found 800 unique candidate stocks across all EasyScans.
+2026-08-20 00:25:56 [INFO] Level 2: Filtered out stocks with Scan_Score < 2. Retained 232 / 800 stocks.
+2026-08-20 00:25:56 [INFO] Exported multi-tab Filtered Stocks Excel to: D:\stonks\momentum_screener\outputs\filtered_stocks_20-08-2026.xlsx
+2026-08-20 00:25:56 [INFO] Exported Filtered Stocks CSV to: D:\stonks\momentum_screener\outputs\filtered_stocks_20-08-2026.csv
+2026-08-20 00:25:56 [INFO] Exported TradingView list to: D:\stonks\momentum_screener\outputs\tradingview_filtered_stocks_20-08-2026.txt
+2026-08-20 00:25:56 [INFO] ===================================================
+2026-08-20 00:25:56 [INFO]           Screener Run Completed!                 
+2026-08-20 00:25:56 [INFO] Total Elapsed Time: 4.5 minutes
+2026-08-20 00:25:56 [INFO] Watchlists & EasyScans Saved to: D:\stonks\momentum_screener\outputs
+2026-08-20 00:25:56 [INFO] ===================================================

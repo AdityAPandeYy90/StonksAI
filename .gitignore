@@ -1,0 +1,28 @@
+# Virtual environments
+stocks_env/
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables & local IDE
+.env
+.env.local
+.vscode/
+.idea/
+
+# Output spreadsheets & cache
+*.xlsx
+*.xls
+*.csv
+momentum_screener/outputs/
+backend/outputs/
+scratch/
+
+# OS files
+.DS_Store
+Thumbs.db
