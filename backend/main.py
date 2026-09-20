@@ -59,14 +59,37 @@ load_dotenv()
 app = FastAPI(title="Indian Stock Fundamental & News Analyzer")
 
 @app.get("/")
+@app.get("/api/index.py")
+@app.get("/api/index")
+@app.get("/api")
 def read_root():
     root_html = os.path.join(BASE_DIR, "index.html")
     if os.path.exists(root_html):
-        return FileResponse(root_html)
+        return FileResponse(root_html, media_type="text/html")
     frontend_html = os.path.join(BASE_DIR, "frontend", "index.html")
     if os.path.exists(frontend_html):
-        return FileResponse(frontend_html)
+        return FileResponse(frontend_html, media_type="text/html")
     return {"message": "StonksAI API is running"}
+
+@app.get("/app.js")
+@app.get("/api/app.js")
+def read_app_js():
+    js_path = os.path.join(BASE_DIR, "app.js")
+    if not os.path.exists(js_path):
+        js_path = os.path.join(BASE_DIR, "frontend", "app.js")
+    if os.path.exists(js_path):
+        return FileResponse(js_path, media_type="application/javascript")
+    raise HTTPException(status_code=404, detail="app.js not found")
+
+@app.get("/style.css")
+@app.get("/api/style.css")
+def read_style_css():
+    css_path = os.path.join(BASE_DIR, "style.css")
+    if not os.path.exists(css_path):
+        css_path = os.path.join(BASE_DIR, "frontend", "style.css")
+    if os.path.exists(css_path):
+        return FileResponse(css_path, media_type="text/css")
+    raise HTTPException(status_code=404, detail="style.css not found")
 
 # Configure CORS so we can develop frontend independently if needed
 app.add_middleware(
