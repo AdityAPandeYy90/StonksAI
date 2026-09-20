@@ -744,8 +744,13 @@ def download_file(file: str = Query(..., description="Filename to download")):
         )
     raise HTTPException(status_code=404, detail="Requested spreadsheet output was not found.")
 
-# Mount frontend files at the root
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
+# Mount frontend files at the root if directory exists locally
+frontend_dir = os.path.join(BASE_DIR, "frontend")
+if os.path.exists(frontend_dir):
+    try:
+        app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
+    except Exception:
+        pass
 
 if __name__ == "__main__":
     import uvicorn
