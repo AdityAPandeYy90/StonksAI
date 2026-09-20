@@ -70,6 +70,20 @@ def read_root():
         return FileResponse(frontend_html, media_type="text/html")
     return {"message": "StonksAI API is running"}
 
+@app.get("/style.css")
+def serve_style_css():
+    css_path = os.path.join(BASE_DIR, "style.css")
+    if not os.path.exists(css_path):
+        css_path = os.path.join(BASE_DIR, "frontend", "style.css")
+    return FileResponse(css_path, media_type="text/css")
+
+@app.get("/app.js")
+def serve_app_js():
+    js_path = os.path.join(BASE_DIR, "app.js")
+    if not os.path.exists(js_path):
+        js_path = os.path.join(BASE_DIR, "frontend", "app.js")
+    return FileResponse(js_path, media_type="application/javascript")
+
 # Configure CORS so we can develop frontend independently if needed
 app.add_middleware(
     CORSMiddleware,
@@ -588,7 +602,7 @@ def get_stock_data(
 
 @app.get("/api/config")
 def get_config():
-    hide_batch = os.getenv("HIDE_BATCH_SCREENER", "false").strip().lower() in ("true", "1", "yes")
+    hide_batch = os.getenv("HIDE_BATCH_SCREENER", "true").strip().lower() in ("true", "1", "yes")
     return {
         "hide_batch_screener": hide_batch
     }
