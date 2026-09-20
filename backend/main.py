@@ -10,12 +10,32 @@ import os
 import json
 import re
 import datetime
-import pandas as pd
 import requests
 from concurrent.futures import ThreadPoolExecutor
 from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
 from dotenv import load_dotenv
+
+def get_yahoo_price(symbol: str):
+    """Fetch current stock price via lightweight Yahoo HTTP API without heavy yfinance/pandas dependencies."""
+    ticker = f"{symbol.upper()}.NS"
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?interval=1d&range=1d"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+    try:
+        resp = requests.get(url, headers=headers, timeout=3.5)
+        if resp.status_code == 200:
+            data = resp.json()
+            result = data.get("chart", {}).get("result", [])
+            if result:
+                meta = result[0].get("meta", {})
+                price = meta.get("regularMarketPrice")
+                if price:
+                    return round(float(price), 2)
+    except Exception:
+        pass
+    return None
 
 # Import our custom modules
 from backend import scraper
@@ -472,14 +492,9 @@ def get_stock_data(
                 cached_json = json.load(f)
                 if cached_json.get("quarterly_financials") and len(cached_json["quarterly_financials"]) > 0:
                     if not cached_json.get("current_price") or cached_json.get("current_price") == 0:
-                        try:
-                            import yfinance as yf
-                            t = yf.Ticker(f"{clean_sym}.NS")
-                            p = getattr(t.fast_info, 'last_price', None)
-                            if p:
-                                cached_json["current_price"] = round(float(p), 2)
-                        except Exception:
-                            pass
+                        p = get_yahoo_price(clean_sym)
+                        if p:
+                            cached_json["current_price"] = p
                     print(f"⚡ Loaded {clean_sym} from disk cache", flush=True)
                     return cached_json
         except Exception:
@@ -520,12 +535,7 @@ def get_stock_data(
     # Extract price & fallback if needed
     current_price = screener_data.get("current_price")
     if not current_price:
-        try:
-            import yfinance as yf
-            t = yf.Ticker(f"{symbol.upper()}.NS")
-            current_price = getattr(t.fast_info, 'last_price', None)
-        except Exception:
-            pass
+        current_price = get_yahoo_price(clean_sym)
 
     result = {
         "symbol": symbol,
