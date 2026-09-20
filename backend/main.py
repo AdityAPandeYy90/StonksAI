@@ -58,6 +58,16 @@ load_dotenv()
 
 app = FastAPI(title="Indian Stock Fundamental & News Analyzer")
 
+@app.get("/")
+def read_root():
+    root_html = os.path.join(BASE_DIR, "index.html")
+    if os.path.exists(root_html):
+        return FileResponse(root_html)
+    frontend_html = os.path.join(BASE_DIR, "frontend", "index.html")
+    if os.path.exists(frontend_html):
+        return FileResponse(frontend_html)
+    return {"message": "StonksAI API is running"}
+
 # Configure CORS so we can develop frontend independently if needed
 app.add_middleware(
     CORSMiddleware,
