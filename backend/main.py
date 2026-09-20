@@ -39,7 +39,6 @@ def get_yahoo_price(symbol: str):
 
 # Import our custom modules
 from backend import scraper
-from backend import analyzer
 
 # Load environment variables
 load_dotenv()
