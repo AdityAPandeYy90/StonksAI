@@ -5,16 +5,29 @@ from fastapi import FastAPI, Query, Header, HTTPException, File, UploadFile, For
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
-from typing import List, Optional
+from typing import List, Optional, Any
 import os
 import json
 import re
 import datetime
+import math
 import requests
 from concurrent.futures import ThreadPoolExecutor
 from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
 from dotenv import load_dotenv
+
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
+
+def is_not_na(val):
+    if val is None:
+        return False
+    if isinstance(val, float) and math.isnan(val):
+        return False
+    return True
 
 def get_yahoo_price(symbol: str):
     """Fetch current stock price via lightweight Yahoo HTTP API without heavy yfinance/pandas dependencies."""
@@ -102,7 +115,7 @@ def load_rules():
         "allow_missing_yoy_for_ipos": True
     }
 
-def extract_from_df(df: pd.DataFrame, symbols_set: set):
+def extract_from_df(df, symbols_set: set):
     target_col = None
     # Search for column names like: nse_symbol, symbol, ticker, code
     for col in df.columns:
@@ -351,9 +364,9 @@ def evaluate_stock_fundamentals(symbol: str, rules: dict, session=None):
         eps_row = q_fin.loc["Basic EPS"] if "Basic EPS" in q_fin.index else None
         
         for dt in dates:
-            rev_val = float(revenue_row[dt]) if revenue_row is not None and pd.notna(revenue_row[dt]) else None
-            np_val = float(net_profit_row[dt]) if net_profit_row is not None and pd.notna(net_profit_row[dt]) else None
-            eps_val = float(eps_row[dt]) if eps_row is not None and pd.notna(eps_row[dt]) else None
+            rev_val = float(revenue_row[dt]) if revenue_row is not None and is_not_na(revenue_row[dt]) else None
+            np_val = float(net_profit_row[dt]) if net_profit_row is not None and is_not_na(net_profit_row[dt]) else None
+            eps_val = float(eps_row[dt]) if eps_row is not None and is_not_na(eps_row[dt]) else None
             
             # Map Yahoo values to standard Crores and decimals
             sales = round(rev_val / 10000000, 2) if rev_val is not None else None
@@ -402,12 +415,12 @@ def get_yahoo_financials_fallback(symbol: str):
         if not yahoo_symbol.endswith(".NS") and not yahoo_symbol.endswith(".BO"):
             yahoo_symbol = f"{yahoo_symbol}.NS"
         print(f"   🔎 Fetching Yahoo Finance quarterly financials for {yahoo_symbol}...", flush=True)
-        ticker = yf.Ticker(yahoo_symbol, session=analyzer.yf_session)
+        ticker = yf.Ticker(yahoo_symbol)
         q_fin = ticker.quarterly_financials
         if q_fin.empty:
             yahoo_symbol = f"{symbol.upper()}.BO"
             print(f"   🔎 Trying BSE symbol {yahoo_symbol} on Yahoo Finance...", flush=True)
-            ticker = yf.Ticker(yahoo_symbol, session=analyzer.yf_session)
+            ticker = yf.Ticker(yahoo_symbol)
             q_fin = ticker.quarterly_financials
         if q_fin.empty:
             print(f"   ⚠️ Yahoo Finance returned empty quarterly financials for {symbol}", flush=True)
@@ -427,9 +440,9 @@ def get_yahoo_financials_fallback(symbol: str):
         eps_row = q_fin.loc["Basic EPS"] if "Basic EPS" in q_fin.index else None
         
         for dt in dates:
-            rev_val = float(revenue_row[dt]) if revenue_row is not None and pd.notna(revenue_row[dt]) else None
-            np_val = float(net_profit_row[dt]) if net_profit_row is not None and pd.notna(net_profit_row[dt]) else None
-            eps_val = float(eps_row[dt]) if eps_row is not None and pd.notna(eps_row[dt]) else None
+            rev_val = float(revenue_row[dt]) if revenue_row is not None and is_not_na(revenue_row[dt]) else None
+            np_val = float(net_profit_row[dt]) if net_profit_row is not None and is_not_na(net_profit_row[dt]) else None
+            eps_val = float(eps_row[dt]) if eps_row is not None and is_not_na(eps_row[dt]) else None
             
             sales = round(rev_val / 10000000, 2) if rev_val is not None else None
             net_profit = round(np_val / 10000000, 2) if np_val is not None else None
@@ -744,18 +757,19 @@ def download_file(file: str = Query(..., description="Filename to download")):
         )
     raise HTTPException(status_code=404, detail="Requested spreadsheet output was not found.")
 
-# Mount frontend files at the root if directory exists locally
-frontend_dir = os.path.join(BASE_DIR, "frontend")
-if os.path.exists(frontend_dir):
-    try:
-        app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
-    except Exception:
-        pass
-elif os.path.exists(os.path.join(BASE_DIR, "index.html")):
-    try:
-        app.mount("/", StaticFiles(directory=BASE_DIR, html=True), name="frontend")
-    except Exception:
-        pass
+# Mount frontend files at the root if directory exists locally (on Vercel, static assets are served directly via Edge CDN)
+if not IS_VERCEL:
+    frontend_dir = os.path.join(BASE_DIR, "frontend")
+    if os.path.exists(frontend_dir):
+        try:
+            app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
+        except Exception:
+            pass
+    elif os.path.exists(os.path.join(BASE_DIR, "index.html")):
+        try:
+            app.mount("/", StaticFiles(directory=BASE_DIR, html=True), name="frontend")
+        except Exception:
+            pass
 
 if __name__ == "__main__":
     import uvicorn
