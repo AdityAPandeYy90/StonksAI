@@ -432,6 +432,7 @@ def evaluate_stock_fundamentals(symbol: str, rules: dict, session=None):
         }
 
 @app.get("/api/search")
+@app.get("/search")
 def search_stock(q: str = Query(..., min_length=1, description="Company name search query")):
     results = scraper.search_company(q)
     return {"results": results}
@@ -511,6 +512,7 @@ def run_with_timeout(func, args=(), kwargs={}, timeout=6, default=None):
 SCREENER_FAIL_COUNT = 0
 
 @app.get("/api/reset-screener")
+@app.get("/reset-screener")
 def reset_screener():
     global USE_SCREENER_IN, SCREENER_FAIL_COUNT
     USE_SCREENER_IN = True
@@ -518,6 +520,7 @@ def reset_screener():
     return {"status": "screener_re-enabled"}
 
 @app.get("/api/stock")
+@app.get("/stock")
 def get_stock_data(
     symbol: str = Query(..., description="Screener.in stock symbol/code"),
     x_gemini_api_key: str = Header(None, description="Optional Gemini API key passed from frontend")
@@ -603,6 +606,7 @@ def get_stock_data(
 
 
 @app.get("/api/config")
+@app.get("/config")
 def get_config():
     hide_batch = os.getenv("HIDE_BATCH_SCREENER", "true").strip().lower() in ("true", "1", "yes")
     return {
@@ -610,6 +614,7 @@ def get_config():
     }
 
 @app.get("/api/scanned-files")
+@app.get("/scanned-files")
 def get_scanned_files():
     """List available scan output files in the momentum screener folder."""
     if not os.path.exists(SCREENER_OUTPUTS_DIR):
@@ -618,10 +623,12 @@ def get_scanned_files():
     return {"files": sorted(files, reverse=True)}
 
 @app.get("/api/fundamental-rules")
+@app.get("/fundamental-rules")
 def get_fundamental_rules():
     return load_rules()
 
 @app.post("/api/fundamental-rules")
+@app.post("/fundamental-rules")
 def update_fundamental_rules(rules: dict):
     try:
         with open(RULES_FILE, "w") as f:
@@ -631,6 +638,7 @@ def update_fundamental_rules(rules: dict):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/batch-screen")
+@app.post("/batch-screen")
 async def run_batch_screen(
     local_files: Optional[str] = Form(None),
     files: Optional[List[UploadFile]] = File(None)
@@ -774,6 +782,7 @@ async def run_batch_screen(
     }
 
 @app.get("/api/download")
+@app.get("/download")
 def download_file(file: str = Query(..., description="Filename to download")):
     safe_name = os.path.basename(file)
     file_path = os.path.join(OUTPUTS_DIR, safe_name)
