@@ -71,6 +71,7 @@ def read_root():
     return {"message": "StonksAI API is running"}
 
 @app.get("/style.css")
+@app.get("/api/style.css")
 def serve_style_css():
     css_path = os.path.join(BASE_DIR, "style.css")
     if not os.path.exists(css_path):
@@ -78,6 +79,7 @@ def serve_style_css():
     return FileResponse(css_path, media_type="text/css")
 
 @app.get("/app.js")
+@app.get("/api/app.js")
 def serve_app_js():
     js_path = os.path.join(BASE_DIR, "app.js")
     if not os.path.exists(js_path):
