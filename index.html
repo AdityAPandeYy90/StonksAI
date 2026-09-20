@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StonksAI - Indian Stock Analyzer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-blur bg-blur-1"></div>
+    <div class="bg-blur bg-blur-2"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <span class="logo-icon">📈</span>
+                <span class="logo-text">Stonks<span class="highlight">AI</span></span>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-box-container">
+                <div class="search-box">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="search-input" placeholder="Search Indian Stocks (e.g. Reliance, TCS, Tata Motors, HDFC Bank)..." autocomplete="off">
+                    <button id="clear-search-btn" class="clear-btn hidden">&times;</button>
+                </div>
+                <div id="autocomplete-list" class="autocomplete-items hidden"></div>
+            </div>
+        </section>
+
+        <!-- Main Body -->
+        <main id="main-content">
+            <!-- Welcome / Initial State Grid -->
+            <div id="welcome-view" class="welcome-grid">
+                
+                <!-- Individual Stock Card -->
+                <div class="welcome-card card">
+                    <h2>Single Stock Analyzer</h2>
+                    <p>Enter any NSE or BSE stock in the search bar above to instantly compile quarterly trends, relative market strength, news, and AI narratives.</p>
+                    <div class="recent-suggestions">
+                        <h3>Popular Stocks:</h3>
+                        <div class="suggestion-tags">
+                            <button class="tag-btn" data-symbol="RELIANCE">Reliance Industries</button>
+                            <button class="tag-btn" data-symbol="TCS">TCS</button>
+                            <button class="tag-btn" data-symbol="TATAMOTORS">Tata Motors</button>
+                            <button class="tag-btn" data-symbol="HDFCBANK">HDFC Bank</button>
+                            <button class="tag-btn" data-symbol="INFY">Infosys</button>
+                            <button class="tag-btn" data-symbol="ITC">ITC</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Batch Screening Card -->
+                <div class="batch-card card">
+                    <h2>Batch Fundamental Screener</h2>
+                    <p class="desc">Filter stocks from your technical scans against strict, multi-quarter QoQ fundamental thresholds.</p>
+                    
+                    <!-- Section: Configurable Rules -->
+                    <div class="rules-section">
+                        <h3>Screening Thresholds</h3>
+                        <div class="rules-inputs-grid">
+                            <div class="input-item">
+                                <label for="rule-min-sales">Min QoQ Sales Growth (%)</label>
+                                <input type="number" id="rule-min-sales" step="0.5" value="0.0">
+                            </div>
+                            <div class="input-item">
+                                <label for="rule-min-eps">Min QoQ EPS Growth (%)</label>
+                                <input type="number" id="rule-min-eps" step="0.5" value="0.0">
+                            </div>
+                            <div class="input-item">
+                                <label for="rule-min-npm">Min NPM (%)</label>
+                                <input type="number" id="rule-min-npm" step="0.5" value="8.0">
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="rule-allow-ipo" checked>
+                            <label for="rule-allow-ipo">Allow missing QoQ history for young IPOs</label>
+                        </div>
+                        <button id="save-rules-btn" class="btn btn-secondary">Apply Thresholds</button>
+                    </div>
+                    
+                    <!-- Section: Select Scan Files -->
+                    <div class="files-section">
+                        <h3>Select Technical Scan Lists</h3>
+                        <div id="local-files-list" class="files-checklist">
+                            <p class="loading-files">Loading scans from outputs directory...</p>
+                        </div>
+                        
+                        <div class="upload-divider"><span>OR</span></div>
+                        
+                        <!-- Drag-and-drop File Upload -->
+                        <div class="upload-box" id="drop-zone">
+                            <span class="upload-icon">📂</span>
+                            <p>Drag &amp; drop Excel/CSV stock lists here or <span class="browse-link">browse</span></p>
+                            <input type="file" id="file-uploader" multiple accept=".xlsx,.xls,.csv" class="hidden">
+                        </div>
+                        <div id="uploaded-files-list" class="uploaded-files-list"></div>
+                    </div>
+                    
+                    <button id="start-screening-btn" class="btn full-width-btn">Start Batch Screening</button>
+                </div>
+            </div>
+
+            <!-- Loading View -->
+            <div id="loading-view" class="loading-container hidden">
+                <div class="spinner-container">
+                    <div class="spinner"></div>
+                    <p id="loading-text">Fetching stock fundamentals, prices, news, and generating AI insights...</p>
+                </div>
+                <div class="skeleton-grid">
+                    <div class="skeleton-card header-skeleton"></div>
+                    <div class="skeleton-card chart-skeleton"></div>
+                    <div class="skeleton-card table-skeleton"></div>
+                    <div class="skeleton-card text-skeleton"></div>
+                </div>
+            </div>
+
+            <!-- Error View -->
+            <div id="error-view" class="error-card card hidden">
+                <span class="error-icon">⚠️</span>
+                <h2>Failed to Load Stock Data</h2>
+                <p id="error-msg">Something went wrong while fetching data. Please check the stock symbol and try again.</p>
+                <button id="retry-btn" class="btn">Go Back</button>
+            </div>
+
+            <!-- Batch Screening Results View -->
+            <div id="batch-results-view" class="dashboard-grid hidden">
+                
+                <!-- Results Header -->
+                <div class="dashboard-header card full-width">
+                    <div class="header-main">
+                        <div>
+                            <h1>Batch Screening Results</h1>
+                            <div class="stock-badges">
+                                <span id="batch-total-badge" class="badge symbol">Total Evaluated: 0</span>
+                                <span id="batch-pass-badge" class="badge sector">Passed: 0</span>
+                                <span id="batch-fail-badge" class="badge industry">Rejected: 0</span>
+                            </div>
+                        </div>
+                        <div class="header-price-info flex-row">
+                            <button id="download-strong-btn" class="btn">
+                                📥 Download Strong Fundamentals
+                            </button>
+                            <button id="download-rejected-btn" class="btn btn-danger-style">
+                                📥 Download Rejected List
+                            </button>
+                            <button id="back-to-home-btn" class="icon-btn">
+                                ← Go Back
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sector Pie Chart Card -->
+                <div class="card sector-chart-card">
+                    <div class="card-header">
+                        <h2>Sector Concentration (Market View)</h2>
+                        <span class="card-subtitle">Showing industry clusters of passed stocks</span>
+                    </div>
+                    <div class="chart-container large">
+                        <canvas id="sector-pie-chart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Sector Stats Table -->
+                <div class="card sector-table-card">
+                    <div class="card-header">
+                        <h2>Sector Metrics Summary</h2>
+                        <span class="card-subtitle">Fundamental metrics grouped by sector</span>
+                    </div>
+                    <div class="table-container">
+                        <table id="sector-summary-table">
+                            <thead>
+                                <tr>
+                                    <th>Sector</th>
+                                    <th>Passed Count</th>
+                                    <th>Avg NPM Q0 (%)</th>
+                                    <th>Avg Market Cap (Cr)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Passed Stocks Details Table -->
+                <div class="card passed-table-card full-width">
+                    <div class="card-header">
+                        <h2>Passed Stocks (Strong Fundamentals)</h2>
+                        <span class="card-subtitle">List of stocks that met all QoQ screening thresholds</span>
+                    </div>
+                    <div class="table-container large-table">
+                        <table id="passed-stocks-table">
+                            <thead>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Company Name</th>
+                                    <th>Sector</th>
+                                    <th>Industry</th>
+                                    <th>Market Cap (Cr)</th>
+                                    <th>Q0 NPM %</th>
+                                    <th>Q0 Sales QoQ %</th>
+                                    <th>Q0 EPS QoQ %</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Rejected Stocks Details Table -->
+                <div class="card rejected-table-card full-width">
+                    <div class="card-header">
+                        <h2>Rejected Stocks</h2>
+                        <span class="card-subtitle">List of stocks that failed one or more criteria</span>
+                    </div>
+                    <div class="table-container large-table">
+                        <table id="rejected-stocks-table">
+                            <thead>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Company Name</th>
+                                    <th>Reason for Rejection</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Dashboard View (Hidden by default) -->
+            <div id="dashboard-view" class="dashboard-grid hidden">
+                
+                <!-- Stock Header Overview Card -->
+                <div class="dashboard-header card full-width">
+                    <div class="header-main">
+                        <div>
+                            <h1 id="stock-name">Reliance Industries Ltd</h1>
+                            <div class="stock-badges">
+                                <span id="stock-ticker" class="badge symbol">RELIANCE</span>
+                                <span id="stock-yahoo-ticker" class="badge yahoo">RELIANCE.NS</span>
+                                <span id="stock-sector" class="badge sector">Refineries</span>
+                                <span id="stock-industry" class="badge industry">Oil Marketing</span>
+                            </div>
+                        </div>
+                        <div class="header-price-info">
+                            <div class="price-container">
+                                <span id="stock-price" class="price">₹2,450.00</span>
+                                <span id="stock-change" class="price-change positive">+1.25%</span>
+                            </div>
+                            <div class="last-updated">Real-time / Yahoo Finance</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quarterly Results Table Card -->
+                <div class="card quarter-card full-width" style="grid-column: 1 / -1; width: 100%;">
+                    <div class="card-header">
+                        <h2>Quarterly Financials (Last 6 Quarters)</h2>
+                        <span class="card-subtitle">Values in Rs. Crores (except EPS)</span>
+                    </div>
+                    <div class="table-container">
+                        <table id="quarters-table">
+                            <thead>
+                                <tr>
+                                    <th>Quarter</th>
+                                    <th>Sales (Cr)</th>
+                                    <th>NPM (%)</th>
+                                    <th>EPS (₹)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="financials-insight-container">
+                        <div class="insight-badge" id="financial-sales-trend">Sales: --</div>
+                        <div class="insight-badge" id="financial-npm-trend">NPM: --</div>
+                    </div>
+                </div>
+
+                <!-- Peer Comparison Table Card -->
+                <div class="card peer-comparison-card full-width">
+                    <div class="card-header">
+                        <h2>Sector Peer Comparison</h2>
+                        <span class="card-subtitle">Ratios and financial comparison against competitors</span>
+                    </div>
+                    <div class="table-container">
+                        <table id="peers-table">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>CMP (₹)</th>
+                                    <th>P/E</th>
+                                    <th>Mar Cap (Cr)</th>
+                                    <th>Div Yield (%)</th>
+                                    <th>Qtr Profit (Cr)</th>
+                                    <th>Qtr Sales (Cr)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js?v=5"></script>
+</body>
+</html>

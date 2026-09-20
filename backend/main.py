@@ -751,6 +751,11 @@ if os.path.exists(frontend_dir):
         app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
     except Exception:
         pass
+elif os.path.exists(os.path.join(BASE_DIR, "index.html")):
+    try:
+        app.mount("/", StaticFiles(directory=BASE_DIR, html=True), name="frontend")
+    except Exception:
+        pass
 
 if __name__ == "__main__":
     import uvicorn
